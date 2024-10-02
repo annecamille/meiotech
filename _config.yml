@@ -4,5 +4,14 @@ theme: just-the-docs
 
 url: https://annecamille.github.io/
 
+logo: "/assets/images/logo.png"
+favicon_ico: "/assets/images/favicon.ico"
+nav_enabled: true
+callouts:
+  warning:
+    title: Warning
+    color: red
+
+
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
