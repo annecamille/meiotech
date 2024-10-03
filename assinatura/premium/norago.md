@@ -7,7 +7,6 @@ nav_enabled: true
 ---
 
 # {{ page.title }}
-A plataforma de streaming foi desenvolvida por meio do app **NoraGo**.
 
 [Documentação NoraGo](https://setplex.com/developers/overview.html)
 
@@ -42,7 +41,11 @@ norago_request("/apex/v2/networks/subscribers/get",data)
 
 ## Listar dados de um subscriber
 
-**accountNumber** e **lastName** são **Obrigatórios**. É possivel pegar o expirationTime, currentSubscriptionStatus
+{: .obs }
+accountNumber e lastName são Obrigatórios.
+É possivel pegar o expirationTime, currentSubscriptionStatus
+
+
 ```python
 data = {"auth": {"token": token,"login": "meioapi","accountNumber":"MO534335", "lastName": "Lamata"}}
 norago_request("/apex/v2/subscribers/get",data)
@@ -59,8 +62,32 @@ data = {"auth": {"token": token,"login": "meioapi"}, "email": email}
 norago_request("/apex/v2/subscribers/search",data)
 ```
 
-## Criar subscriber E subscription na mesma chamada <--
+## Criar subscriber E subscription na mesma chamada
 ```python
-data = {"auth": {"token": token,"login": "meioapi"}, "subscriber": {"password": "123456", "firstName": "Anne", "lastName": "Pinho", "email": "annecamille05@gmail.com", "phone": "5521980205808", "zipCode": "22710310","address": "Rua Carlos Palut","city": "Rio de Janeiro", "country": "BR", "timeZone": "America/Sao_Paulo"},"subscription": {"subscriptionId":"WHYZYKEGY"},"deviceCount": 3, "approvalRequired": "false","paymentSystemType":"EXTERNAL_PAYMENTS", "externalPaymentSystemType": "PAYPAL_EXPRESS", "transactionId": "123456777"}
+data = {"auth": {
+	"token": token,
+	"login": "meioapi"
+	}, 
+	"subscriber": {
+		"password": "123456", 
+		"firstName": "Nome", 
+		"lastName": "Sobrenome", 
+		"email": "email@gmail.com", 
+		"phone": "999999999999999", 
+		"zipCode": "-",
+		"address": "-",
+		"city": "-",
+		"country": "BR",
+		"timeZone": "America/Sao_Paulo"
+	},
+	"subscription": {
+		"subscriptionId":"WHYZYKEGY"
+	},
+	"deviceCount": 3, 
+	"approvalRequired": "false",
+	"paymentSystemType":"EXTERNAL_PAYMENTS", 
+	"externalPaymentSystemType": "PAYPAL_EXPRESS", 
+	"transactionId": "123456777"
+}
 norago_request("/apex/v2/payments/doSingle",data)
 ```

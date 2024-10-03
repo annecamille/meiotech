@@ -7,8 +7,12 @@ url: https://annecamille.github.io/
 logo: "/assets/images/logo.png"
 favicon_ico: "/assets/images/favicon.ico"
 nav_enabled: true
+
 callouts:
   warning:
     title: Warning
     color: red
+  obs:
+    title: 💡 Dicas
+    color: blue
 
